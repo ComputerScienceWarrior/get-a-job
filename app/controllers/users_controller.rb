@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    before_action: find_user, only: [:edit, :update, :show]
+    before_action :find_user, only: [:edit, :update, :show]
+    before_action :require_login, only: [:edit, :update]
 
     def show
     end
@@ -36,5 +37,12 @@ class UsersController < ApplicationController
 
     def find_user
         @user = User.find(params[:id])
+    end
+
+    def require_login
+        unless current_user
+            flash[:alert] = 'You must be logged in to access this page'
+            redirect_to login_path
+        end
     end
 end
