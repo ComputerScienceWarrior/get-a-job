@@ -1,23 +1,40 @@
-<form action="<%= signup_path %>" method="post">
-    <%= csrf_meta_tags %>
+<div class="w-full max-w-xs mx-auto mt-8">
+  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="<%= signup_path %>" method="post">
 
-    <label for="user_firstname">First Name:</label>
-    <input type="text" id="user_firstname" name="user[firstname]" required>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="user_firstname">First Name:</label>
+      <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_firstname" type="text" name="user[firstname]" required>
+    </div>
 
-    <label for="user_lastname">Last Name:</label>
-    <input type="text" id="user_lastname" name="user[lastname]" required>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="user_lastname">Last Name:</label>
+      <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_lastname" type="text" name="user[lastname]" required>
+    </div>
 
-    <label for="user_email">Email:</label>
-    <input type="email" id="user_email" name="user[email]" required>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="user_email">Email:</label>
+      <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_email" type="email" name="user[email]" required>
+    </div>
 
-    <label for="user_username">Username:</label>
-    <input type="text" id="user_username" name="user[username]" required>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="user_username">Username:</label>
+      <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_username" type="text" name="user[username]" required>
+    </div>
 
-    <label for="user_password">Password:</label>
-    <input type="password" id="user_password" name="user[password]" required>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="user_password">Password:</label>
+      <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_password" type="password" name="user[password]" required>
+    </div>
 
-    <label for="user_password_confirmation">Confirm Password:</label>
-    <input type="password" id="user_password_confirmation" name="user[password_confirmation]" required>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="user_password_confirmation">Confirm Password:</label>
+      <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_password_confirmation" type="password" name="user[password_confirmation]" required>
+    </div>
 
-    <input type="submit" value="Sign Up">
-</form>
+    <div class="flex items-center justify-between">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+        Sign Up
+      </button>
+    </div>
+  </form>
+</div>
