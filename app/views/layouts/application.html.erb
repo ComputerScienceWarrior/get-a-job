@@ -10,14 +10,18 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% if current_user %>
-      Logged in as <%= current_user.username %>
-    <%= link_to 'Logout', logout_path %>
-    <% else %>
-      <%= link_to 'Login', login_path %> | <%= link_to 'Signup', signup_path %>
-    <% end %>
-
+  <body class="bg-gray-700">
+    <ul class="flex justify-evenly p-3">
+      <% if current_user %>
+        <li><%= link_to 'Home', root_path, class: 'text-white' %></li>
+        <li><%= link_to 'Logout', logout_path, method: :delete, class: 'text-white' %></li>
+        <li class='text-white'>Logged in as <span class="text-green-500"><%= current_user.username %></span></li>
+      <% else %>
+        <li><%= link_to 'Home', root_path, class: 'text-white' %></li>
+        <li><%= link_to 'Login', login_path, class: 'text-white' %></li>
+        <li><%= link_to 'Signup', signup_path, class: 'text-white' %></li>
+      <% end %>
+    </ul>
     <%= yield %>
   </body>
 </html>
