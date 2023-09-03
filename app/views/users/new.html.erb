@@ -1,40 +1,48 @@
-<div class="w-full max-w-xs mx-auto mt-8">
-  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="<%= signup_path %>" method="post">
+<div class="bg-gradient-to-b from-blue-500 to-indigo-700 min-h-screen flex flex-col justify-center items-center">
+  <div class="w-full max-w-xs bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form action="<%= signup_path %>" method="post">
+      <%= csrf_meta_tags %>
 
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="user_firstname">First Name:</label>
-      <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_firstname" type="text" name="user[firstname]" required>
-    </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="user_firstname">First Name:</label>
+        <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_firstname" type="text" name="user[firstname]" required>
+      </div>
 
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="user_lastname">Last Name:</label>
-      <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_lastname" type="text" name="user[lastname]" required>
-    </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="user_lastname">Last Name:</label>
+        <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_lastname" type="text" name="user[lastname]" required>
+      </div>
 
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="user_email">Email:</label>
-      <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_email" type="email" name="user[email]" required>
-    </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="user_email">Email:</label>
+        <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_email" type="email" name="user[email]" required>
+      </div>
 
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="user_username">Username:</label>
-      <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_username" type="text" name="user[username]" required>
-    </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="user_username">Username:</label>
+        <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_username" type="text" name="user[username]" required>
+      </div>
 
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="user_password">Password:</label>
-      <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_password" type="password" name="user[password]" required>
-    </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="user_password">Password:</label>
+        <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_password" type="password" name="user[password]" required>
+      </div>
 
-    <div class="mb-6">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="user_password_confirmation">Confirm Password:</label>
-      <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_password_confirmation" type="password" name="user[password_confirmation]" required>
-    </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="user_password_confirmation">Confirm Password:</label>
+        <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_password_confirmation" type="password" name="user[password_confirmation]" required>
+      </div>
 
-    <div class="flex items-center justify-center">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-        Sign Up
-      </button>
-    </div>
-  </form>
+      <div class="flex items-center justify-center p-3">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline" type="submit">
+          Sign Up
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="text-white text-lg">
+    Already have an account?
+    <%= link_to 'Log in', login_path, class: "text-blue-300 hover:text-blue-400 font-bold ml-1" %>
+  </div>
 </div>
