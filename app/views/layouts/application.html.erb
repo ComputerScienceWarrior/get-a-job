@@ -6,11 +6,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'flash_messages' %>
   </head>
 
   <body class="bg-gray-700">
+    <% flash.each do |key, message| %>
+      <div class="p-4 mb-4 bg-blue-200 text-blue-900 border-l-4 border-blue-500 rounded" id="flash-message-<%= key %>" data-dismiss="flash">
+        <%= message %>
+      </div>
+    <% end %>
+
     <ul class="flex justify-evenly p-3">
       <% if current_user %>
         <li><%= link_to 'Home', root_path, class: 'text-white' %></li>
