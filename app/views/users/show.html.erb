@@ -1,2 +1,51 @@
-<div class="text-red-500">
-    Hello! <%= current_user.username %>
+<div class="bg-gradient-to-b from-blue-500 to-indigo-700 min-h-screen flex flex-col justify-center items-center">
+  <div class="w-full max-w-lg bg-white shadow-md rounded-lg p-8">
+    <h2 class="text-3xl font-semibold text-gray-800 mb-4">User Profile</h2>
+
+    <div class="flex items-center mb-6">
+      <img src="your_profile_image_url" alt="User Profile" class="rounded-full w-20 h-20 mr-4">
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800"><%= current_user.username %></h3>
+        <p class="text-gray-600"><%= current_user.email %></p>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <p class="text-gray-700 text-lg leading-relaxed">
+        Hello! I'm <%= current_user.username %>, a passionate developer with a love for coding and problem-solving. I have a strong background in web development and a knack for creating responsive and user-friendly applications.
+
+        My journey in the tech world began when I discovered my fascination for creating digital solutions. Since then, I've been on a continuous learning path, exploring various technologies and frameworks to stay up-to-date with the latest trends.
+
+        With a keen eye for detail and a dedication to producing high-quality code, I'm committed to delivering top-notch software solutions. Whether it's front-end development, back-end development, or anything in between, I'm always up for a new challenge.
+
+        When I'm not coding, you can find me enjoying a good book, hiking in the great outdoors, or experimenting with new recipes in the kitchen.
+
+        Feel free to get in touch with me if you'd like to collaborate on a project or just have a chat. I'm always excited to connect with fellow developers and tech enthusiasts!
+      </p>
+    </div>
+
+    <div class="mb-6">
+      <button
+        id="editProfileButton"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+      >
+        Edit Profile
+      </button>
+    </div>
+
+    <div id="editProfileForm" class="hidden">
+      <%= render 'form' %>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // JavaScript to toggle the edit profile form
+  const editProfileButton = document.getElementById('editProfileButton');
+  const editProfileForm = document.getElementById('editProfileForm');
+
+  editProfileButton.addEventListener('click', () => {
+    editProfileForm.classList.toggle('hidden');
+  });
+</script>
