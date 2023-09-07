@@ -23,6 +23,7 @@
           <% if current_user %>
             <li><%= link_to 'Profile', user_path(current_user), class: 'text-white' %></li>
             <li><%= link_to 'About Us', about_path, class: 'text-white' %></li>
+            <li><%= link_to 'My Portfolios', user_portfolios_path(current_user), class: 'text-white' %></li>
             <li><%= link_to 'Logout', logout_path, method: :delete, class: 'text-white' %></li>
             <li class='text-white'>Logged in as <span class="text-green-500"><%= current_user.username %></span></li>
           <% else %>
