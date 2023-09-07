@@ -1,6 +1,6 @@
 class Users::PortfoliosController < ApplicationController
-    before_action :find_portfolio, only: [:show, :edit, :create, :destroy]
     before_action :find_user
+    before_action :find_portfolio, only: [:show, :edit, :create, :destroy]
 
     def index
         @portfolios = @user.portfolios
@@ -36,10 +36,11 @@ class Users::PortfoliosController < ApplicationController
     end
 
     def find_portfolio
+        byebug
         @portfolio = Portfolio.find(params[:id])
     end
 
     def find_user
-        @user = @portfolio.user
+        @user = User.find(params[:user_id])
     end
 end
