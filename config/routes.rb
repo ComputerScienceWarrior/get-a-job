@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :users, only: [:show, :new, :create, :edit, :update] do
-    resources :portfolios, only: [:index]
+  resources :users do
+    resources :portfolios
   end
   resources :portfolios, only: [:index]
   
