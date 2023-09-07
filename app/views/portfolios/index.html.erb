@@ -1,0 +1,21 @@
+<div class="container mx-auto p-8">
+  <h2 class="text-2xl font-semibold mb-4">Portfolio Index</h2>
+  <table class="min-w-full table-auto">
+    <thead>
+      <tr>
+        <th class="px-4 py-2">User</th>
+        <th class="px-4 py-2">Portfolio Title</th>
+        <th class="px-4 py-2">Portfolio Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @portfolios.each do |portfolio| %>
+        <tr>
+          <td class="border px-4 py-2"><%= portfolio.user.username %></td>
+          <td class="border px-4 py-2"><%= portfolio.title %></td>
+          <td class="border px-4 py-2"><%= portfolio.type %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
