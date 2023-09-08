@@ -1,6 +1,6 @@
 class Users::PortfoliosController < ApplicationController
     before_action :find_user
-    before_action :find_portfolio, only: [:show, :edit, :create, :destroy]
+    before_action :find_portfolio, only: [:show, :edit, :destroy]
 
     def index
         @portfolios = @user.portfolios
@@ -17,7 +17,8 @@ class Users::PortfoliosController < ApplicationController
     end
 
     def create
-        if @portfolio.save(portfolio_params)
+        @portfolio = Portfolio.new(portfolio_params)
+        if @portfolio.save
             # flash message to save portfolio was saved
             redirect_to user_portfolio_path(@portfolio.user, @portfolio)
         else
@@ -36,7 +37,6 @@ class Users::PortfoliosController < ApplicationController
     end
 
     def find_portfolio
-        byebug
         @portfolio = Portfolio.find(params[:id])
     end
 
