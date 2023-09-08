@@ -28,9 +28,10 @@ class Users::PortfoliosController < ApplicationController
     def create
         @portfolio = Portfolio.new(portfolio_params)
         if @portfolio.save
-            # flash message to save portfolio was saved
+            flash[:alert] = 'You have successfully created your Portfolio!'
             redirect_to user_portfolio_path(@portfolio.user, @portfolio)
         else
+            flash[:alert] = "Failed to create portfolio. #{@portfolio.errors.full_messages.join(', ')}"
             render :new
         end
     end
