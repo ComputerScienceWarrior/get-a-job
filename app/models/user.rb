@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
     validate :validate_portfolio_limit
 
+    def fullname
+        firstname + ' ' + lastname
+    end
+
     private
 
     def validate_portfolio_limit

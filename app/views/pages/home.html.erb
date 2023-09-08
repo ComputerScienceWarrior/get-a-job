@@ -3,15 +3,14 @@
     Welcome to GetAJob!
   </div>
 
-  <div class="text-center text-white text-lg mb-8">
-    Your go-to platform for job searching and career development.
+  <%= link_to 'Explore Portfolios', portfolios_path, class: "bg-yellow-400 hover:bg-yellow-500 text-white font-bold text-3xl py-3 px-6 rounded-full border border-yellow-600 focus:outline-none focus:shadow-outline mt-6" %>
+
+  <div class="text-center text-white text-lg mb-8 mt-8">
+    Your go-to platform for portfolio showcasing, job searching and career development.
   </div>
 
-  <% if current_user %>
-    <div class="text-white text-xl font-semibold">
-      Hello, <%= current_user.username %>!
-    </div>
 
+  <% if current_user %>
     <div class="mt-4">
       <%= link_to 'Explore Jobs', root_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline" %>
     </div>

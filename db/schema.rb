@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 2023_09_07_201854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,9 @@ ActiveRecord::Schema.define(version: 4) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "template_id"
+    t.bigint "user_id", null: false
     t.index ["template_id"], name: "index_portfolios_on_template_id"
+    t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -54,8 +56,10 @@ ActiveRecord::Schema.define(version: 4) do
     t.text "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "about_me", default: ""
   end
 
   add_foreign_key "portfolios", "templates"
+  add_foreign_key "portfolios", "users"
   add_foreign_key "projects", "portfolios"
 end
