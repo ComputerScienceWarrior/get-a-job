@@ -1,0 +1,19 @@
+<div class="container mx-auto p-8">
+  <h2 class="text-4xl font-semibold mb-4">Portfolio Portfolios</h2>
+  <table class="min-w-full table-auto">
+    <thead>
+      <tr>
+        <th class="text-center text-white underline px-4 py-2">User</th>
+        <th class="text-center text-white underline px-4 py-2">Portfolio Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @portfolios.each do |portfolio| %>
+        <tr>
+          <td class="text-center border px-4 py-2"><%= portfolio.user.username %></td>
+          <td class="text-center border px-4 py-2"><%= link_to portfolio.title, user_portfolio_path(portfolio.user, portfolio), class: 'text-green-500 underline' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
