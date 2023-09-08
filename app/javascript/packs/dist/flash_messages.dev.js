@@ -6,10 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
     flashMessages.forEach(function (message) {
       setTimeout(function () {
         message.style.display = 'none';
-      }, 3000);
+      }, 2000);
     });
   }
 
   dismissFlashMessages();
-  s;
 });
