@@ -13,6 +13,18 @@ class Portfolios::ProjectsController < ApplicationController
         @project = Project.new
     end
 
+    def create
+        @project = Project.new(project_params)
+
+        if @project.save
+            flash[:alert] = 'You have successfully created your project!'
+            redirect_to portfolio_project_path(@project.portfolio, @project)
+        else
+            flash[:error] = "Failed to create project. #{@project.errors.full_messages.join(', ')}"
+            render :new
+        end
+    end
+
     def edit
     end
 
@@ -21,18 +33,11 @@ class Portfolios::ProjectsController < ApplicationController
             flash[:alert] = 'You have successfully updated your Project!'
             redirect_to portfolio_project_path(@project.portfolio, @project)
         else
+            flash[:error] = 'There was an error updating your project.'
             render :edit
         end
     end
 
-    def create
-        @project = Portfolio.new(project_params)
-        if @project.save
-            redirect_to portfolio_project_path(@project.portfolio, @project)
-        else
-            render :new
-        end
-    end
 
     def destroy
         if @project.destroy
