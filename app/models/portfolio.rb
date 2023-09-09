@@ -1,7 +1,7 @@
 class Portfolio < ApplicationRecord
     belongs_to :user
     belongs_to :template, optional: true
-    has_many :projects
+    has_many :projects, dependent: :destroy
 
     validates :title, presence: true, uniqueness: true
     validates :description, presence: true, uniqueness: true
