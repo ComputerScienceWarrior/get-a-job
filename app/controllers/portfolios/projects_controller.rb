@@ -1,4 +1,5 @@
 class Portfolios::ProjectsController < ApplicationController
+    skip_before_action :verify_authenticity_token
     before_action :find_portfolio
     before_action :find_project, only: [:show, :edit, :update, :destroy]
 
