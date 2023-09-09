@@ -22,7 +22,8 @@
           <td class="text-center border px-4 py-2">
             <%= form_for portfolio, url: user_portfolio_path(portfolio.user, portfolio), method: :delete, data: { confirm: 'Are you sure you want to delete this portfolio?' } do |f| %>
               <%= f.submit 'Delete', class: 'text-red-500 underline' %>
-            <% end %>          
+            <% end %>
+            <%= link_to 'New Project', new_portfolio_project_path(portfolio), class: 'text-green-500' %> 
           </td>
         <% else %>
           <td class="text-center border px-4 py-2"><%= portfolio.user.username %></td>
