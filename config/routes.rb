@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :portfolios, controller: 'users/portfolios'
   end
 
+  resources :portfolios do
+    resources :projects, controller: 'portfolios/projects'
+  end
 
   get 'sessions/new'
   get 'sessions/create'
