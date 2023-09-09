@@ -37,8 +37,14 @@ class Users::PortfoliosController < ApplicationController
     end
 
     def destroy
-        # delete the portfolio
-    end
+        if @portfolio.destroy
+          flash[:success] = "Portfolio deleted successfully."
+        else
+          flash[:error] = "Failed to delete the portfolio."
+        end
+      
+        redirect_to user_portfolios_path(@portfolio.user)
+      end
 
     private
 
