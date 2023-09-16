@@ -1,18 +1,22 @@
 <div class="bg-gradient-to-b from-blue-500 to-indigo-700 min-h-screen flex flex-col justify-center items-center">
   <div class="w-full h-screen max-w-3xl bg-white shadow-md rounded-lg p-8 mb-4">
     <h2 class="text-center text-3xl font-semibold text-gray-800 mb-4"><%= @portfolio.title %></h2>
+    <div class="p-5"></div>
 
-    <div class="p-16"></div>
-    
-    <p class="text-center text-gray-700 text-lg mb-6"><%= @portfolio.description %></p>
-
-    <div class="p-16"></div>
-
-    <div class="mb-6 flex justify-center">
-      <%= link_to 'Edit Portfolio', edit_user_portfolio_path(@user, @portfolio), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline" %>
+    <div class="flex justify-center mb-4">
+      <img src="https://via.placeholder.com/200x200" alt="Thumbnail Placeholder" class="w-32 h-32 rounded-full text-center align-middle" />
     </div>
-    <div class="mb-6 flex justify-center">
-      <%= link_to 'Back to Portfolios', user_portfolios_path(@user), class: "text-blue-500 hover:text-blue-700 font-bold" %>
+      
+    <p class="text-center text-gray-700 text-lg mb-6"><%= @portfolio.description %></p>
+    <div class="p-8"></div>
+
+    <div class="flex justify-evenly mb-6">
+      <%= link_to 'Edit Portfolio', edit_user_portfolio_path(@user, @portfolio), class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline" %>
+      <%= link_to 'New Project +', new_portfolio_project_path(@portfolio), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline' %>
+    </div>
+    <div class="mb-6 flex flex-col items-center">
+      <p><%= link_to 'Back to Portfolios', user_portfolios_path(@user), class: "text-blue-500 hover:text-blue-700 font-bold" %></p>
+      <p><%= link_to 'View all Projects', portfolio_projects_path(@portfolio), class: "text-blue-500 hover:text-blue-700 font-bold" %></p>
     </div>
   </div>
 </div>
